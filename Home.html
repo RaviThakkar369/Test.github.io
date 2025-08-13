@@ -1,39 +1,365 @@
 <!DOCTYPE html>
 <html lang="en">
-  <head>
-    <meta charset="utf-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1">
-    <!-- The above 3 meta tags *must* come first in the head; any other head content must come *after* these tags -->
-    <title>Ravi Thakkar - personal Website</title>
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Therivapeutics LLC</title>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600&display=swap" rel="stylesheet" />
+  <style>
+    body {
+      font-family: 'Inter', sans-serif;
+      margin: 0;
+      padding: 0;
+      background-color: #f9f9f9;
+      color: #333;
+      line-height: 1.6;
+    }
 
-    <!-- Bootstrap -->
-    <link href="css/bootstrap.min.css" rel="stylesheet">
-    <link href="css/style.css" rel="stylesheet">
+    header {
+      background-color: #0c4a6e;
+      color: white;
+      padding: 2rem;
+      text-align: center;
+    }
 
-    <!-- HTML5 shim and Respond.js for IE8 support of HTML5 elements and media queries -->
-    <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
-    <!--[if lt IE 9]>
-      <script src="https://oss.maxcdn.com/html5shiv/3.7.2/html5shiv.min.js"></script>
-      <script src="https://oss.maxcdn.com/respond/1.4.2/respond.min.js"></script>
-    <![endif]-->
-  </head>
-  <body>
-  <link href="~/nav.html" />
-  	<div class="container">
-	  	<div class="row">
-		    <div class="col-xs-12">
-		    	<h1>Hello, world!</h1>
-		    	This is my Bootstrap HTML Skeleton
-		    </div>
-	    </div>
-	</div>
+    nav {
+      text-align: center;
+      margin-top: 1rem;
+    }
+    nav a {
+      margin: 0 1rem;
+      text-decoration: none;
+      color: #0c4a6e;
+      font-weight: 600;
+      padding: 0.5rem 1rem;
+      border-radius: 4px;
+      cursor: pointer;
+      user-select: none;
+      display: inline-block;
+    }
+    nav a.active {
+      background-color: #0c4a6e;
+      color: white !important;
+    }
 
-    <!-- jQuery (necessary for Bootstrap's JavaScript plugins) -->
-    <script src="js/jQuery.js"></script>
-    <!-- Include all compiled plugins (below), or include individual files as needed -->
-    <script src="js/bootstrap.min.js"></script>
-    <script src="js/script.js"></script>
+    section {
+      max-width: 1100px;
+      margin: 2rem auto;
+      padding: 1rem;
+      background: white;
+      border-radius: 0.5rem;
+      box-shadow: 0 2px 6px rgba(0,0,0,0.1);
+      display: none;
+      box-sizing: border-box;
+    }
+    section.active {
+      display: block;
+    }
 
-  </body>
+    ul {
+      padding-left: 1.5rem;
+    }
+    li {
+      margin-bottom: 0.5rem;
+    }
+
+    .flex-container {
+      display: flex;
+      align-items: flex-start;
+      gap: 20px;
+      justify-content: center;
+      width: 100%;
+      flex-wrap: wrap;
+    }
+
+    footer {
+      text-align: center;
+      padding: 2rem;
+      font-size: 0.9rem;
+      color: #666;
+    }
+
+    .publication {
+      display: flex;
+      align-items: flex-start;
+      margin-bottom: 2rem;
+      gap: 1.5rem;
+      flex-wrap: wrap;
+    }
+    .publication img {
+      width: 150px;
+      height: auto;
+      border-radius: 0.5rem;
+      box-shadow: 0 1px 5px rgba(0,0,0,0.1);
+      cursor: pointer;
+      max-width: 100%;
+    }
+    .pub-content {
+      flex: 1;
+    }
+    .title {
+      font-weight: 600;
+      font-size: 1.1rem;
+      margin-bottom: 0.3rem;
+    }
+    .authors {
+      font-style: italic;
+      margin-bottom: 0.3rem;
+    }
+    .journal {
+      color: #555;
+      margin-bottom: 0.3rem;
+    }
+    .links a {
+      text-decoration: none;
+      margin-right: 1rem;
+      color: #0c4a6e;
+      font-weight: 600;
+    }
+
+    form {
+      display: flex;
+      flex-direction: column;
+      max-width: 600px;
+      margin: 0 auto;
+    }
+    input, textarea {
+      margin-bottom: 1rem;
+      padding: 0.8rem;
+      font-size: 1rem;
+      border: 1px solid #ccc;
+      border-radius: 5px;
+      width: 100%;
+      box-sizing: border-box;
+    }
+    button {
+      padding: 0.8rem;
+      background-color: #0c4a6e;
+      color: white;
+      border: none;
+      border-radius: 5px;
+      font-size: 1rem;
+      cursor: pointer;
+      width: 150px;
+      align-self: center;
+    }
+    button:hover {
+      background-color: #155e85;
+    }
+
+    /* External links styling */
+    .external-links {
+      margin-bottom: 2.5rem;
+      text-align: center;
+    }
+    .external-links a {
+      display: inline-flex;
+      align-items: center;
+      text-decoration: none;
+      color: #0c4a6e;
+      font-weight: 600;
+      margin: 0.5rem;
+    }
+    .external-links img {
+      width: 24px;
+      height: 24px;
+      margin-right: 8px;
+    }
+
+    /* Ensure media scales */
+    img, video {
+      max-width: 100%;
+      height: auto;
+    }
+
+    /* Responsive layout adjustments */
+    @media (max-width: 768px) {
+      nav a {
+        display: block;
+        margin: 0.5rem auto;
+      }
+
+      section#services > div > div {
+        width: 100% !important;
+      }
+
+      .publication {
+        flex-direction: column;
+        align-items: center;
+        text-align: center;
+      }
+      .pub-content {
+        text-align: center;
+      }
+      header {
+        padding: 1rem;
+      }
+      h1 {
+        font-size: 1.5rem;
+      }
+    }
+
+    @media (max-width: 480px) {
+      body {
+        font-size: 0.95rem;
+      }
+      nav a {
+        font-size: 0.9rem;
+        padding: 0.4rem;
+      }
+      header p {
+        font-size: 0.85rem;
+      }
+    }
+  </style>
+</head>
+<body>
+
+<header>
+  <h1>Therivapeutics LLC</h1>
+  <p>Scientific Consulting & Collaborative Research for the Development of Innovative Therapeutic Solutions</p>
+</header>
+
+<nav>
+  <a href="#" data-section="about">About Us</a>
+  <a href="#" data-section="services" class="active">Services</a>
+  <a href="#" data-section="publications">Publications</a>
+  <a href="#" data-section="contact">Contact</a>
+  <a href="#" data-section="thankyou" style="display:none;">Thank You</a>
+</nav>
+
+<section id="about">
+  <h2>Mission Statement</h2>
+  <p>Research and development of innovative therapeutic solutions, providing scientific services including <i>in silico</i> design, screening, testing, and consulting; collaborating with for-profit and non-profit organizations to accelerate discovery and development in the biotechnology sector.</p>
+
+  <h2>Meet the founder & CEO</h2>
+  <div class="flex-container">
+    <div style="flex:1; min-width:250px; text-align:justify;">
+      <p>I am <strong>Ravindra Thakkar, PhD</strong>, the Founder and CEO of <strong>Therivapeutics LLC</strong>, bringing over a decade of experience in structural biology and biomolecular modelling.</p>
+      <p>My work integrates experimental and computational approaches in structural biology, with a focus on computational biomolecular modeling and electron microscopy for therapeutic applications.</p>
+      <p>I am a skilled electron microscopist with specialized expertise in applications across structural biology, clinical pathology, general biological and soft material research including nanomaterial characterization.</p>
+      <p>I am passionate about learning new technologies and building partnerships to tackle complex challenges that improve human health and benefit society.</p>
+    </div>
+    <div style="flex:0 0 160px;">
+      <img src="images/ravi.png" alt="Ravi Thakkar" style="border-radius:8px; box-shadow:0 2px 6px rgba(0,0,0,0.1);" />
+    </div>
+  </div>
+</section>
+
+<section id="services" class="active">
+  <div style="display:flex; flex-direction:column; gap:2rem; align-items:center;">
+    <div style="background:#fff; border-radius:10px; box-shadow:0 4px 12px rgba(0,0,0,0.1); padding:1.5rem; width:100%; max-width:700px;">
+      <h3 style="text-align:center; color:#0c4a6e;">Consultation & Services in Molecular Modeling & Computational Biology</h3>
+      <div style="text-align:center; margin-top:1rem;">
+        <img src="images/docking.png" alt="docking" />
+        <video id="video1" autoplay muted loop style="border-radius:8px;">
+          <source src="images/movie.mp4" type="video/mp4" />
+        </video>
+        <ul>
+          <li>Molecular docking and post docking analysis</li>
+          <li>Molecular dynamics simulations and analysis</li>
+          <li>Protein structure prediction and validation</li>
+          <li>Binding free energy estimation</li>
+          <li>High-throughput <i>in silico</i> screening</li>
+          <li>ADMET analysis</li>
+        </ul>
+      </div>
+    </div>
+
+    <div style="background:#fff; border-radius:10px; box-shadow:0 4px 12px rgba(0,0,0,0.1); padding:1.5rem; width:100%; max-width:700px;">
+      <h3 style="text-align:center; color:#0c4a6e;">Consultation & On-site Training in Biological Electron Microscopy</h3>
+      <div class="flex-container" style="justify-content:center; gap:1rem;">
+        <img src="images/tem.png" alt="TEM" />
+        <img src="images/sem.png" alt="SEM" />
+      </div>
+      <ul>
+        <li>Operation of TEM and SEM</li>
+        <li>Traditional biological specimen preparation</li>
+        <li>Ultramicrotomy of resin embedded specimens</li>
+      </ul>
+    </div>
+  </div>
+</section>
+
+<section id="publications">
+  <h2>A few selected publications</h2>
+  <div class="publication">
+    <a href="https://doi.org/10.1039/D2MD00409G" target="_blank">
+      <img src="images/pub1.png" alt="Publication 1" />
+    </a>
+    <div class="pub-content">
+      <div class="title">Computational design of a cyclic peptide that inhibits the CTLA4 immune checkpoint</div>
+      <div class="authors"><b>Thakkar, Ravindra</b> et al.</div>
+      <div class="journal">RSC Medicinal Chemistry, 2023</div>
+      <div class="links"><a href="https://doi.org/10.1039/D2MD00409G" target="_blank">DOI</a></div>
+    </div>
+  </div>
+  <div class="external-links">
+    <a href="https://scholar.google.com/citations?user=evELZAwAAAAJ&hl=en" target="_blank">
+      <img src="https://cdn.jsdelivr.net/gh/simple-icons/simple-icons/icons/googlescholar.svg" alt="Google Scholar" />
+      Google Scholar
+    </a>
+    <a href="https://orcid.org/0000-0002-2541-0802" target="_blank">
+      <img src="https://cdn.jsdelivr.net/gh/simple-icons/simple-icons/icons/orcid.svg" alt="ORCID" />
+      ORCID Profile
+    </a>
+  </div>
+</section>
+
+<section id="contact">
+  <h2>Contact Us</h2>
+  <form action="https://formsubmit.co/therivapeutics@gmail.com" method="POST">
+    <input type="text" name="name" placeholder="Your Name" required />
+    <input type="email" name="email" placeholder="Your Email" required />
+    <input type="text" name="subject" placeholder="Subject" required />
+    <textarea name="message" rows="5" placeholder="Your Message" required></textarea>
+    <input type="url" name="filelink" placeholder="Paste file link (optional)" />
+    <input type="hidden" name="_captcha" value="false" />
+    <input type="hidden" name="_next" value="#thankyou" />
+    <button type="submit">Send Message</button>
+  </form>
+</section>
+
+<section id="thankyou">
+  <h2>Thank You!</h2>
+  <p>Your message has been received.</p>
+  <p><a href="#" data-section="services" style="color:#0c4a6e;">Return to Home</a></p>
+</section>
+
+<footer>
+  <nav>
+    <a href="#" data-section="about">About Us</a>
+    <a href="#" data-section="services">Services</a>
+    <a href="#" data-section="publications">Publications</a>
+    <a href="#" data-section="contact">Contact</a>
+  </nav>
+  <p>&copy; 2025 Therivapeutics LLC. All rights reserved.</p>
+</footer>
+
+<script>
+  const navLinks = document.querySelectorAll('nav a[data-section]');
+  const sections = document.querySelectorAll('section');
+
+  function showSection(sectionId) {
+    sections.forEach(sec => sec.classList.toggle('active', sec.id === sectionId));
+    navLinks.forEach(link => link.classList.toggle('active', link.dataset.section === sectionId));
+  }
+
+  navLinks.forEach(link => {
+    link.addEventListener('click', e => {
+      e.preventDefault();
+      showSection(link.dataset.section);
+      window.scrollTo({ top: 0, behavior: 'smooth' });
+    });
+  });
+
+  window.addEventListener('DOMContentLoaded', () => showSection('services'));
+
+  window.addEventListener('hashchange', () => {
+    const hash = location.hash.replace('#', '');
+    if (hash && document.getElementById(hash)) showSection(hash);
+  });
+</script>
+
+</body>
 </html>
